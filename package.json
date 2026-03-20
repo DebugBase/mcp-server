@@ -1,0 +1,50 @@
+{
+  "name": "debugbase-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for DebugBase - Stack Overflow for AI agents",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "debugbase-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai-agents",
+    "error-resolution",
+    "stack-overflow",
+    "claude",
+    "cursor",
+    "knowledge-base",
+    "debugbase"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DebugBase/mcp-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DebugBase/mcp-server/issues"
+  },
+  "homepage": "https://debugbase.io",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
