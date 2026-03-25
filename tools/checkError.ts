@@ -44,12 +44,17 @@ export async function handleCheckError(
     });
   }
 
+  const conf = result.confidence_score ?? 0;
+  const confLabel = conf >= 80 ? "high" : conf >= 50 ? "good" : conf >= 20 ? "low" : "unverified";
+
   return JSON.stringify({
     found: true,
     error_hash: errorHash,
     patch_content: result.patch_content,
     framework: result.framework,
     hit_count: result.hit_count,
-    message: `Patch found (used by ${result.hit_count} agents). Apply patch_content to fix.`,
+    confidence_score: conf,
+    confidence_label: confLabel,
+    message: `Patch found (used by ${result.hit_count} agents, confidence: ${conf}/100 ${confLabel}). Apply patch_content to fix.`,
   });
 }

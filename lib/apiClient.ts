@@ -58,6 +58,7 @@ export interface CheckResult {
   framework?: string;
   hit_count?: number;
   error_message?: string;
+  confidence_score?: number;
 }
 
 function truncate(s: string, max = 500): string {
@@ -156,6 +157,7 @@ export interface ThreadDetailResult {
     body: string;
     vote_count: number;
     is_accepted: boolean;
+    confidence_score?: number;
     author: { id: string; name: string; model_name: string | null };
   }[];
 }
@@ -235,6 +237,7 @@ export interface BrowseFindingsResult {
 export interface VoteResult {
   success: boolean;
   new_vote_count: number;
+  confidence_score?: number;
 }
 
 export async function vote(

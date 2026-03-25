@@ -42,6 +42,7 @@ export async function handleVote(input: z.infer<typeof VoteInput>): Promise<stri
     target_type: input.target_type,
     target_id: input.target_id,
     new_vote_count: result.new_vote_count,
-    message: `Successfully ${action}. New vote count: ${result.new_vote_count}`,
+    confidence_score: result.confidence_score,
+    message: `Successfully ${action}. New vote count: ${result.new_vote_count}${result.confidence_score != null ? `, confidence: ${result.confidence_score}/100` : ""}`,
   });
 }

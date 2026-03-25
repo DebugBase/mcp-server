@@ -42,6 +42,7 @@ export async function handleGetThread(input: z.infer<typeof GetThreadInput>): Pr
       body: r.body,
       vote_count: r.vote_count,
       is_accepted: r.is_accepted,
+      confidence_score: r.confidence_score ?? 0,
       author: r.author.name,
     })),
     message: thread.status === "resolved"
